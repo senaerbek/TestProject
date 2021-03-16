@@ -1,0 +1,46 @@
+@model List<Urun>
+@{
+    ViewData["Title"] = "Admin Page";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Ürün Adı</th>
+                        <th scope="col">Marka</th>
+                        <th scope="col">Seç</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td> @item.UrunAdi</td>
+                            <td> @item.Marka.MarkaAdı</td>
+                            <td><button  type="button" class="btn btn-primary buttonSec"  value="@item.UrunId">Seç</button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-12">
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="col-md-12">
+                <canvas id="myLineChart"></canvas>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+<script src="./site.js"></script>
